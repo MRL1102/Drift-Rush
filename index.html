@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b17" />
+    <title>Drift Rush - 漂移竞速</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-frame" aria-label="Drift Rush 游戏画面">
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+        <div class="hud" aria-live="polite">
+          <div class="hud-card timer"><span>TIME</span><strong id="timeValue">60.0</strong></div>
+          <div class="hud-card"><span>SCORE</span><strong id="scoreValue">0</strong></div>
+          <div class="hud-card combo"><span>DRIFT COMBO</span><strong id="comboValue">x1</strong></div>
+          <div class="hud-card speed"><span>SPEED</span><strong id="speedValue">0 <i>KM/H</i></strong></div>
+        </div>
+
+        <section id="startScreen" class="overlay visible">
+          <div class="panel start-panel">
+            <p class="eyebrow">NEON STREET LEAGUE</p>
+            <h1>DRIFT <em>RUSH</em></h1>
+            <p class="tagline">60 秒，冲出属于你的漂移连击。</p>
+            <div class="controls" aria-label="操作说明">
+              <div><b>WASD / 方向键</b><span>驾驶赛车</span></div>
+              <div><b>空格 + 转向</b><span>进入漂移</span></div>
+              <div><b>顺序穿越光门</b><span>赢取检查点分数</span></div>
+            </div>
+            <button id="startButton" class="primary-button" type="button">开始竞速 <span>↗</span></button>
+          </div>
+        </section>
+
+        <section id="endScreen" class="overlay" aria-live="assertive">
+          <div class="panel end-panel">
+            <p class="eyebrow">RUN COMPLETE</p>
+            <h2>时间到！</h2>
+            <div class="results">
+              <div><span>总得分</span><strong id="finalScore">0</strong></div>
+              <div><span>最高 Combo</span><strong id="finalCombo">x1</strong></div>
+              <div><span>检查点</span><strong id="finalCheckpoints">0</strong></div>
+            </div>
+            <button id="restartButton" class="primary-button" type="button">再来一局 <span>↻</span></button>
+          </div>
+        </section>
+      </section>
+      <p class="footer-tip">提示：速度越高，漂移得分越快。撞上边界会清空未结算连击！</p>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
