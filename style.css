@@ -1,0 +1,22 @@
+:root { color-scheme: dark; font-family: "Arial Narrow", "Microsoft YaHei", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; display: grid; place-items: center; overflow: hidden; color: #f5f8ff; background: radial-gradient(circle at 50% 15%, #172854 0, #0b1126 34%, #050711 100%); }
+.game-shell { width: min(100%, 1440px); padding: clamp(10px, 2vw, 26px); }
+.game-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(140, 200, 255, .28); border-radius: 18px; background: #101625; box-shadow: 0 0 0 1px rgba(0,0,0,.45), 0 24px 70px rgba(0,0,0,.48), inset 0 0 50px rgba(91, 225, 255, .08); }
+canvas { display: block; width: 100%; height: 100%; }
+.hud { position: absolute; inset: 0; padding: clamp(13px, 2vw, 25px); display: flex; gap: clamp(8px, 1.25vw, 17px); align-items: flex-start; pointer-events: none; }
+.hud-card { min-width: 115px; padding: 8px 12px 9px; border-left: 3px solid #67efff; background: linear-gradient(90deg, rgba(4,10,26,.8), rgba(4,10,26,.32)); text-shadow: 0 1px 7px #000; }
+.hud-card span { display: block; font-size: clamp(9px, .8vw, 12px); letter-spacing: .18em; color: #8ea3c9; }
+.hud-card strong { display: block; margin-top: 1px; font-size: clamp(20px, 2vw, 31px); line-height: 1; font-style: italic; letter-spacing: .03em; }
+.timer { border-color: #ffce56; }.timer strong { color: #fff1bd; }.combo { border-color: #ff57b8; }.combo strong { color: #ff92d1; }.speed { margin-left: auto; border-color: #a1f56b; }.speed strong { color: #d6ffbd; }.speed i { font-size: .34em; font-style: normal; letter-spacing: .08em; }
+.overlay { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; padding: 18px; opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s; background: rgba(2, 5, 15, .55); backdrop-filter: blur(3px); }
+.overlay.visible { opacity: 1; visibility: visible; }
+.panel { width: min(500px, 92%); padding: clamp(26px, 4vw, 50px); text-align: center; border: 1px solid rgba(153, 222, 255, .42); background: linear-gradient(140deg, rgba(15,28,58,.95), rgba(6,8,22,.96)); box-shadow: 0 0 60px rgba(54,205,255,.16), inset 0 0 45px rgba(103,217,255,.05); clip-path: polygon(0 16px, 16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px)); }
+.eyebrow { margin: 0 0 10px; color: #6eefff; font-size: 11px; font-weight: 700; letter-spacing: .32em; }
+h1,h2 { margin: 0; font-style: italic; line-height: .86; letter-spacing: -.05em; text-transform: uppercase; } h1 { font-size: clamp(54px, 8vw, 94px); } h1 em { color: #ff4aa9; font-style: inherit; text-shadow: 0 0 19px rgba(255,74,169,.5); } h2 { font-size: clamp(45px, 6vw, 72px); }
+.tagline { margin: 23px 0 25px; color: #bdc9e3; }
+.controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 0 auto 28px; background: rgba(128,171,228,.25); }.controls div { padding: 13px 8px; background: rgba(7,13,31,.76); }.controls b,.controls span { display: block; }.controls b { color: #eef8ff; font-size: 12px; }.controls span { margin-top: 5px; color: #8799be; font-size: 11px; }
+.primary-button { cursor: pointer; border: 0; padding: 14px 26px; color: #08101e; font: 800 15px "Microsoft YaHei", sans-serif; letter-spacing: .09em; background: #72efff; box-shadow: 0 0 22px rgba(99,239,255,.34); transition: transform .16s, box-shadow .16s; }.primary-button:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(99,239,255,.58); }.primary-button span { margin-left: 12px; font-size: 19px; }
+.results { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin: 25px 0 28px; background: rgba(141,181,246,.3); }.results div { padding: 15px 8px; background: rgba(5,11,29,.8); }.results span,.results strong { display: block; }.results span { color: #8ba1c9; font-size: 11px; }.results strong { margin-top: 4px; color: #ffda75; font-size: 24px; font-style: italic; }
+.footer-tip { margin: 11px 0 0; color: #7689ad; text-align: center; font-size: 12px; }
+@media (max-width: 660px) { .hud { gap: 5px; padding: 9px; }.hud-card { min-width: 0; padding: 5px 7px 6px; border-left-width: 2px; }.speed { display: none; }.controls { grid-template-columns: 1fr; }.controls div { display: flex; justify-content: space-between; gap: 7px; padding: 8px 11px; }.controls span { margin: 0; }.footer-tip { font-size: 10px; } }
